@@ -5,6 +5,7 @@ import { CardProps } from './Card';
 
 const Game: React.FC = () => {
   const [cards, setCards] = useState<CardProps[]>([]);
+  const [canFlip, setCanFlip] = useState<boolean>(true);
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [unmatchedCards, setUnmatchedCards] = useState<number[]>([]);
@@ -14,6 +15,8 @@ const Game: React.FC = () => {
   }, []);
 
   const handleCardClick = (id: number) => {
+    if (!canFlip) return;
+
     // Check if the card is already flipped or matched
     if (flippedCards.includes(id) || matchedCards.includes(id)) {
       return;
@@ -39,11 +42,13 @@ const Game: React.FC = () => {
         // Reset flipped cards
         setFlippedCards([]);
       } else {
+        setCanFlip(false);
         // No match, set unmatched cards
         setUnmatchedCards(newFlippedCards);
 
         // No match, flip back after a short delay
         setTimeout(() => {
+          setCanFlip(true);
           setFlippedCards([]);
           setUnmatchedCards([]);
         }, 1000);
