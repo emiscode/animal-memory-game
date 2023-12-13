@@ -3,7 +3,8 @@ import Game from './components/Game';
 
 function App() {
   return (
-    <div className="App min-h-screen bg-gray-100">
+    <div className="App min-h-screen">
+      <div className="title-gradient">Memória Animal</div>
       <Game />
     </div>
   );

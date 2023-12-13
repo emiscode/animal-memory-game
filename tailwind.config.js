@@ -6,5 +6,10 @@ module.exports = {
   theme: {
     extend: {},
   },
+  variants: {
+    extend: {
+      backgroundClip: ['text'],
+    },
+  },
   plugins: [],
 };

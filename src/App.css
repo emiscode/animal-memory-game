@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-image: url('../public/assets/the-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.title-gradient {
+  margin-top: 0.5em;
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(to right, orange, purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
