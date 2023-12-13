@@ -38,7 +38,7 @@
 }
 
 body {
-  background-image: url('../public/assets/the-background.png');
+  background-image: url('../public/assets/background.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
