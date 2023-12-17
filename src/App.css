@@ -47,7 +47,7 @@ body {
   margin-top: 0.5em;
   font-size: 3rem;
   font-weight: bold;
-  background: linear-gradient(to right, orange, purple);
+  background: linear-gradient(to right, darkorange, purple);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

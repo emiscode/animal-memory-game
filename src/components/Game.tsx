@@ -141,7 +141,7 @@ const Game: React.FC = () => {
   return (
     <div className="flex flex-col items-center py-8">
       <div className="mb-4 flex items-center">
-        <FontAwesomeIcon icon={faVolumeUp} className="mr-2" />
+        <FontAwesomeIcon icon={faVolumeUp} className="mr-2 ml-2" />
         <input
           className="mr-2"
           type="range"
@@ -151,19 +151,19 @@ const Game: React.FC = () => {
           value={volume}
           onChange={(e) => setVolume(parseFloat(e.target.value))}
         />
-        <button onClick={(event) => stop()} className="ml-2 mr-2">
+        <button onClick={(event) => stop()} className="ml-2 mr-4">
           <FontAwesomeIcon icon={faStop} />
         </button>
         <button
           onClick={(event) => playBackgroundSound()}
-          className="ml-2 mr-2"
+          className="ml-2 mr-4"
         >
           <FontAwesomeIcon icon={faPlay} />
         </button>
         {restart && (
           <button
             onClick={(event) => restartGame()}
-            className="ml-2 mr-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-orange-500 hover:to-yellow-500 px-4 py-2 rounded text-gray-700 shadow-lg font-bold"
+            className="ml-8 mr-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-orange-500 hover:to-yellow-500 px-4 py-2 rounded text-gray-700 shadow-lg font-bold"
           >
             Reiniciar
           </button>
