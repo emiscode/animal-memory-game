@@ -1,5 +1,3 @@
-import cowImage from '../../public/assets/cow.png';
-
 interface Animal {
   name: string;
   image: string;
