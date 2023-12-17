@@ -51,7 +51,7 @@ const Game: React.FC = () => {
           setCanFlip(true);
           setFlippedCards([]);
           setUnmatchedCards([]);
-        }, 1000);
+        }, 1500);
       }
     }
   };
