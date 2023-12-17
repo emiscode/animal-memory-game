@@ -5,14 +5,34 @@ import { CardProps } from './Card';
 
 const Game: React.FC = () => {
   const [cards, setCards] = useState<CardProps[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [canFlip, setCanFlip] = useState<boolean>(true);
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [unmatchedCards, setUnmatchedCards] = useState<number[]>([]);
 
   useEffect(() => {
-    setCards(shuffle(generateAnimalPairs()));
+    setIsLoading(true);
+    generateAnimalPairs()
+      .then((generatedCards) => {
+        setCards(shuffle(generatedCards));
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error('Failed to load cards:', error);
+        setIsLoading(false);
+      });
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center">
+        <div className="text-xl font-bold text-orange-800 ml-2">
+          Iniciando...
+        </div>
+      </div>
+    );
+  }
 
   const handleCardClick = (id: number) => {
     if (!canFlip) return;

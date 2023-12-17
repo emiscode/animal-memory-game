@@ -9,17 +9,29 @@ interface Card {
   flipped: boolean;
 }
 
-export function generateAnimalPairs(): Card[] {
+export function preloadImages(animals: Animal[]): Promise<void[]> {
+  const promises = animals.map((animal) => {
+    return new Promise<void>((resolve, reject) => {
+      const img = new Image();
+      img.src = animal.image;
+      img.onload = () => resolve();
+      img.onerror = reject;
+    });
+  });
+
+  return Promise.all(promises);
+}
+
+export async function generateAnimalPairs(): Promise<Card[]> {
   const animals: Animal[] = [
     { name: 'Vaca', image: './assets/cow.png' },
     { name: 'Gato', image: './assets/cat.png' },
-    //{ name: 'Leão', image: './assets/lion.png' },
-    //{ name: 'Urso', image: './assets/bear.png' },
     { name: 'Cachorro', image: './assets/dog.png' },
     { name: 'Cavalo', image: './assets/horse.png' },
-    //{ name: 'Coelho', image: './assets/habbit.png' },
-    //{ name: 'Elefante', image: './assets/elephant.png' },
   ];
+
+  // Preload images
+  await preloadImages(animals);
 
   let cards: Card[] = animals.reduce<Card[]>((result, animal, index) => {
     const card1: Card = { id: index * 2, animal, flipped: false };
