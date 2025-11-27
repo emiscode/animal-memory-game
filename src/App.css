@@ -45,9 +45,15 @@ body {
 
 .title-gradient {
   margin-top: 0.5em;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   background: linear-gradient(to right, darkorange, purple);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .title-gradient {
+    font-size: 3rem;
+  }
 }

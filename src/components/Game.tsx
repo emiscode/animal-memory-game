@@ -139,31 +139,35 @@ const Game: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center py-8">
-      <div className="mb-4 flex items-center">
-        <FontAwesomeIcon icon={faVolumeUp} className="mr-2 ml-2" />
-        <input
-          className="mr-2"
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
-          value={volume}
-          onChange={(e) => setVolume(parseFloat(e.target.value))}
-        />
-        <button onClick={(event) => stop()} className="ml-2 mr-4">
-          <FontAwesomeIcon icon={faStop} />
-        </button>
-        <button
-          onClick={(event) => playBackgroundSound()}
-          className="ml-2 mr-4"
-        >
-          <FontAwesomeIcon icon={faPlay} />
-        </button>
+    <div className="flex flex-col items-center py-4 md:py-8 px-1 md:px-0">
+      <div className="mb-3 md:mb-4 flex flex-wrap items-center justify-center gap-2 md:gap-0">
+        <div className="flex items-center">
+          <FontAwesomeIcon icon={faVolumeUp} className="mr-1 md:mr-2 ml-1 md:ml-2 text-sm md:text-base" />
+          <input
+            className="mr-1 md:mr-2 w-16 md:w-auto"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={volume}
+            onChange={(e) => setVolume(parseFloat(e.target.value))}
+          />
+        </div>
+        <div className="flex items-center">
+          <button onClick={(event) => stop()} className="ml-1 md:ml-2 mr-2 md:mr-4 text-sm md:text-base">
+            <FontAwesomeIcon icon={faStop} />
+          </button>
+          <button
+            onClick={(event) => playBackgroundSound()}
+            className="ml-1 md:ml-2 mr-2 md:mr-4 text-sm md:text-base"
+          >
+            <FontAwesomeIcon icon={faPlay} />
+          </button>
+        </div>
         {restart && (
           <button
             onClick={(event) => restartGame()}
-            className="ml-8 mr-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-orange-500 hover:to-yellow-500 px-4 py-2 rounded text-gray-700 shadow-lg font-bold"
+            className="ml-2 md:ml-8 mr-1 md:mr-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-orange-500 hover:to-yellow-500 px-3 py-1.5 md:px-4 md:py-2 rounded text-gray-700 shadow-lg font-bold text-sm md:text-base"
           >
             Reiniciar
           </button>
