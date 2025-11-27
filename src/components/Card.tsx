@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div
-      className={`card border-gray-400 border-2 bg-white shadow-md rounded-md overflow-hidden cursor-pointer w-16 h-24 md:w-32 md:h-48 flex items-start justify-center ${
+      className={`card border-gray-400 border-2 bg-white shadow-md rounded-md overflow-hidden cursor-pointer w-20 h-28 md:w-32 md:h-48 flex items-start justify-center ${
         unmatchedCards.includes(id) ? 'border-red-300 border-2' : ''
       }`}
       onClick={() => onCardClick(id)}
